@@ -1,6 +1,10 @@
 # @gui-chat-plugin/present3d
 
+[![npm version](https://badge.fury.io/js/%40gui-chat-plugin%2Fpresent3d.svg)](https://www.npmjs.com/package/@gui-chat-plugin/present3d)
+
 3D shape presentation plugin using ShapeScript for GUI Chat applications. Create interactive 3D visualizations with a powerful DSL.
+
+![Screenshot](https://raw.githubusercontent.com/receptron/GUIChatPluginPresent3D/main/images/screen.png)
 
 ## Features
 
@@ -134,6 +138,14 @@ yarn build
 # Lint
 yarn lint
 ```
+
+## Test Prompts
+
+Try these prompts to test the plugin:
+
+1. "Create a 3D visualization of a simple house with a roof"
+2. "Show me a 3D spiral staircase"
+3. "Generate a 3D model of the solar system with planets orbiting the sun"
 
 ## License
 

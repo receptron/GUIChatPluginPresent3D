@@ -48,7 +48,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/snakajima/GUIChatPluginPresent3D.git"
+    "url": "git@github.com:receptron/GUIChatPluginPresent3D.git"
   },
   "license": "MIT"
 }
