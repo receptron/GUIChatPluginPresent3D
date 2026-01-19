@@ -38,6 +38,6 @@ try {
   console.log(`  Nodes: ${ast.length}`);
   console.log("  AST structure looks good");
 } catch (error) {
-  console.log("✗ Parse error:", error.message);
+  console.log("✗ Parse error:", (error as Error).message);
   process.exit(1);
 }
