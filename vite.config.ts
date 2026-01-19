@@ -1,41 +1,30 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import tailwindcss from "@tailwindcss/vite";
-import dts from "vite-plugin-dts";
 import { resolve } from "path";
 
 export default defineConfig({
-  plugins: [
-    vue(),
-    tailwindcss(),
-    dts({
-      include: ["src/**/*.ts"],
-      exclude: ["src/**/*.vue"],
-      outDir: "dist",
-      rollupTypes: false,
-    }),
-  ],
+  plugins: [vue(), tailwindcss()],
   build: {
     lib: {
       entry: {
+        index: resolve(__dirname, "src/index.ts"),
         core: resolve(__dirname, "src/core/index.ts"),
         vue: resolve(__dirname, "src/vue/index.ts"),
       },
-      formats: ["es"],
+      name: "GUIChatPluginPresent3D",
+      formats: ["es", "cjs"],
+      fileName: (format, entryName) =>
+        `${entryName}.${format === "es" ? "js" : "cjs"}`,
     },
     rollupOptions: {
-      external: [
-        "vue",
-        "gui-chat-protocol",
-        "gui-chat-protocol/vue",
-        "three",
-        "three-bvh-csg",
-      ],
+      external: ["vue"],
       output: {
+        exports: "named",
         globals: {
           vue: "Vue",
-          three: "THREE",
         },
+        assetFileNames: "style.[ext]",
       },
     },
     cssCodeSplit: false,

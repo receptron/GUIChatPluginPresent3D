@@ -1868,6 +1868,11 @@ three-bvh-csg@^0.0.17:
   resolved "https://registry.yarnpkg.com/three-bvh-csg/-/three-bvh-csg-0.0.17.tgz#13ad266055bdc46150e6b6a8ea589eae771eb115"
   integrity sha512-iEkHDF8GRfGM6593Cuw8SnF1vfENCp46gIAtRzuL4nGXGWPcR1sbTBwM9ptDONb5twqlZp5WkAKya5aBKe2qcA==
 
+three-mesh-bvh@^0.9.7:
+  version "0.9.7"
+  resolved "https://registry.yarnpkg.com/three-mesh-bvh/-/three-mesh-bvh-0.9.7.tgz#153c8c9cf49c337cd12b15a683958cb877567283"
+  integrity sha512-EYSJbykeAjhVxwZjuUYq/kelIbqBoV9sbAgvZ+j1xCgZyNYSkr51WDJWS4WIfK2OX6YcjBGoTicX4RoOVQzx0g==
+
 three@^0.172.0:
   version "0.172.0"
   resolved "https://registry.yarnpkg.com/three/-/three-0.172.0.tgz#6944a72f8439e8f7e4b034c8539ec82f5ebe0082"
