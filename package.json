@@ -31,31 +31,31 @@
     "test:wave": "tsx test-wave-script.ts"
   },
   "dependencies": {
-    "gui-chat-protocol": "^0.0.3",
+    "gui-chat-protocol": "^0.0.4",
     "three": "^0.182.0",
     "three-bvh-csg": "^0.0.17",
     "three-mesh-bvh": "^0.9.7"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.2",
-    "@tailwindcss/vite": "^4.0.0",
+    "@eslint/js": "^10.0.1",
+    "@tailwindcss/vite": "^4.2.2",
     "@types/node": "^25.0.9",
     "@types/three": "^0.182.0",
-    "@typescript-eslint/eslint-plugin": "^8.53.0",
-    "@typescript-eslint/parser": "^8.53.0",
-    "@vitejs/plugin-vue": "^6.0.3",
-    "eslint": "^9.17.0",
-    "eslint-plugin-vue": "^10.7.0",
-    "globals": "^17.0.0",
-    "tailwindcss": "^4.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.58.0",
+    "@typescript-eslint/parser": "^8.58.0",
+    "@vitejs/plugin-vue": "^6.0.5",
+    "eslint": "^10.1.0",
+    "eslint-plugin-vue": "^10.8.0",
+    "globals": "^17.4.0",
+    "tailwindcss": "^4.2.2",
     "tsx": "^4.21.0",
     "typescript": "~6.0.2",
-    "typescript-eslint": "^8.53.0",
-    "vite": "^7.3.1",
+    "typescript-eslint": "^8.58.0",
+    "vite": "^8.0.3",
     "vite-plugin-dts": "^4.4.0",
-    "vue": "^3.5.13",
-    "vue-eslint-parser": "^10.2.0",
-    "vue-tsc": "^3.2.2"
+    "vue": "^3.5.31",
+    "vue-eslint-parser": "^10.4.0",
+    "vue-tsc": "^3.2.6"
   },
   "peerDependencies": {
     "vue": "^3.5.0"
