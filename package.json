@@ -1,6 +1,6 @@
 {
   "name": "@gui-chat-plugin/present3d",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "3D shape presentation plugin using ShapeScript for GUI Chat applications",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -31,7 +31,7 @@
     "test:wave": "tsx test-wave-script.ts"
   },
   "dependencies": {
-    "gui-chat-protocol": "^0.0.4",
+    "gui-chat-protocol": "^0.1.0",
     "three": "^0.182.0",
     "three-bvh-csg": "^0.0.17",
     "three-mesh-bvh": "^0.9.7"
