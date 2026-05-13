@@ -11,14 +11,13 @@ for x in -10 to 10 step 0.3 {
     // Calculate the y position using sine
     define y (sin(x * frequency) * amplitude)
 
+    // Map y from range [-2, 2] to [0, 1] for color
+    define colorVal ((y / amplitude + 1) / 2)
+
     // Create a sphere at the calculated position
     sphere {
         position x y 0
         size 0.25
-
-        // Calculate color based on height
-        // Map y from range [-2, 2] to [0, 1] for color
-        define colorVal ((y / amplitude + 1) / 2)
         color colorVal 0.3 (1 - colorVal)
     }
 }

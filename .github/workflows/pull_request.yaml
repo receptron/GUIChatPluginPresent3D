@@ -35,6 +35,8 @@ jobs:
     - run: yarn run build
     - name: Run ShapeScript parser tests
       run: yarn run test:shapescript
+    - name: Run wave script parser test
+      run: yarn run test:wave
     - name: Update version with timestamp
       run: |
         TIMESTAMP=$(date +%Y%m%d%H%M%S)
