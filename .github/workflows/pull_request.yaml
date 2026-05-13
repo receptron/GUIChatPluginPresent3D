@@ -50,6 +50,7 @@ jobs:
     - name: Run wave script parser test
       run: yarn run test:wave
     - name: Update version with timestamp
+      shell: bash
       run: |
         TIMESTAMP=$(date +%Y%m%d%H%M%S)
         VERSION=$(node -p "require('./package.json').version")
