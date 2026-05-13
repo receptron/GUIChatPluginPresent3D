@@ -74,7 +74,7 @@ function testExample(example: ShapeScriptExample): TestResult {
     return {
       example,
       success: false,
-      error: error as Error,
+      error: error instanceof Error ? error : new Error(String(error)),
       parseTime,
     };
   }
@@ -136,8 +136,7 @@ if (failed > 0) {
     console.log(`\n${result.example.name} (${result.example.file}):`);
     console.log(`Error: ${result.error!.message}`);
     if (result.error && 'line' in result.error && 'column' in result.error) {
-      const error = result.error as Error & { line: number; column: number };
-      console.log(`Location: line ${error.line}, column ${error.column}`);
+      console.log(`Location: line ${result.error.line}, column ${result.error.column}`);
     }
   }
 } else {
