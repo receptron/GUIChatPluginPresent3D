@@ -25,6 +25,7 @@ import {
   CustomShapeNode,
   ColorNode,
   RotateNode,
+  OrientationNode,
   TranslateNode,
   ScaleNode,
   Expression,
@@ -123,7 +124,7 @@ export class Converter {
       case "customShape":
         return this.convertCustomShape(node);
       default:
-        console.warn(`Unknown node type: ${(node as any).type}`);
+        console.warn(`Unknown node type: ${(node as { type: string }).type}`);
         return null;
     }
   }
@@ -603,7 +604,7 @@ export class Converter {
 
     // Override with provided properties
     for (const [key, value] of Object.entries(node.properties)) {
-      const evaluatedValue = this.evaluator.evaluate(value as any);
+      const evaluatedValue = this.evaluator.evaluate(value as Expression);
       this.symbols.set(key, evaluatedValue);
     }
 
@@ -705,7 +706,7 @@ export class Converter {
     transform.matrix.multiply(rotationMatrix);
   }
 
-  private handleOrientationCommand(node: any): void {
+  private handleOrientationCommand(node: OrientationNode): void {
     const orientation = this.evaluateVector3(node.value);
     const transform = this.currentTransform();
 
@@ -1179,7 +1180,7 @@ export class Converter {
     return [0.8, 0.8, 0.8]; // Default gray
   }
 
-  private valuesEqual(a: any, b: any): boolean {
+  private valuesEqual(a: unknown, b: unknown): boolean {
     if (typeof a !== typeof b) return false;
     if (Array.isArray(a) && Array.isArray(b)) {
       if (a.length !== b.length) return false;

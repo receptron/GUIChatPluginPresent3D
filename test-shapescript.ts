@@ -136,7 +136,7 @@ if (failed > 0) {
     console.log(`\n${result.example.name} (${result.example.file}):`);
     console.log(`Error: ${result.error!.message}`);
     if (result.error && 'line' in result.error && 'column' in result.error) {
-      const error = result.error as any;
+      const error = result.error as Error & { line: number; column: number };
       console.log(`Location: line ${error.line}, column ${error.column}`);
     }
   }
