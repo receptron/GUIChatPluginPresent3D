@@ -17,19 +17,30 @@ permissions:
 
 jobs:
   lint_test:
-
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [24.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        node-version: [22.x, 24.x]
+        os: [ubuntu-latest, windows-2022, macos-latest]
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v6
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'yarn'
+        cache: ${{ runner.os == 'Windows' && '' || 'yarn' }}
+    - name: Disable Windows Defender realtime monitoring
+      if: runner.os == 'Windows'
+      run: Set-MpPreference -DisableRealtimeMonitoring $true
+      shell: powershell
+    - name: Cache node_modules (Windows)
+      if: runner.os == 'Windows'
+      uses: actions/cache@v4
+      with:
+        path: node_modules
+        key: win-node-modules-${{ matrix.node-version }}-${{ hashFiles('yarn.lock') }}
+        restore-keys: |
+          win-node-modules-${{ matrix.node-version }}-
     - run: yarn install
     - run: yarn run lint
     - run: yarn run build
