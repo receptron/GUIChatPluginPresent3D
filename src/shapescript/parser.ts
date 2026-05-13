@@ -22,6 +22,7 @@ import {
   LatheNode,
   FillNode,
   HullNode,
+  ShapeProperties,
 } from "./types";
 
 // Lexer/Tokenizer
@@ -843,8 +844,8 @@ export class Parser {
     return first;
   }
 
-  private parseProperties(): Record<string, any> {
-    const properties: Record<string, any> = {};
+  private parseProperties(): ShapeProperties {
+    const properties: ShapeProperties = {};
 
     while (
       this.current().type !== TokenType.RBRACE &&
@@ -939,7 +940,7 @@ export class Parser {
   ): ShapeNode {
     this.advance(); // consume primitive token
 
-    let properties: Record<string, any> = {};
+    let properties: ShapeProperties = {};
 
     if (this.current().type === TokenType.LBRACE) {
       this.expect(TokenType.LBRACE);
@@ -1285,7 +1286,7 @@ export class Parser {
     this.expect(TokenType.LBRACE);
     this.skipNewlines();
 
-    const properties: any = {};
+    const properties: ShapeProperties = {};
     let path: PathNode | undefined;
     const children: SceneNode[] = [];
 
@@ -1893,7 +1894,7 @@ export class Parser {
         const name = token.value as string;
         this.advance();
 
-        const properties: Record<string, any> = {};
+        const properties: Record<string, unknown> = {};
 
         if (this.current().type === TokenType.LBRACE) {
           this.expect(TokenType.LBRACE);
