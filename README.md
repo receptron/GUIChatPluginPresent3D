@@ -18,8 +18,11 @@
 ## Installation
 
 ```bash
-yarn add @gui-chat-plugin/present3d
+yarn add @gui-chat-plugin/present3d gui-chat-protocol
 ```
+
+> `gui-chat-protocol` is a peer dependency — install it alongside the plugin; the host application provides the runtime and this plugin only declares the compatible range.
+
 
 ## Usage
 
