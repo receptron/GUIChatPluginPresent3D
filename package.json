@@ -1,6 +1,6 @@
 {
   "name": "@gui-chat-plugin/present3d",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "3D shape presentation plugin using ShapeScript for GUI Chat applications",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -55,11 +55,11 @@
     "vue": "^3.5.40",
     "vue-eslint-parser": "^10.4.1",
     "vue-tsc": "^3.3.8",
-    "gui-chat-protocol": "^1.2.0"
+    "gui-chat-protocol": "^2.0.0"
   },
   "peerDependencies": {
     "vue": "^3.5.0",
-    "gui-chat-protocol": "^1.2.0"
+    "gui-chat-protocol": "^2.0.0"
   },
   "repository": {
     "type": "git",
