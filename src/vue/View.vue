@@ -305,10 +305,14 @@ function cleanup() {
   if (animationId) {
     cancelAnimationFrame(animationId);
   }
-  // The renderer's own dispose does not walk what it was drawing, so the last
-  // script rendered before the view closes would keep its geometries and
-  // materials. Same ownership as the rebuild above.
-  sceneObjects.forEach((obj) => removeAndDispose(scene, obj));
+  // Everything this view put in the scene is its to free — not just the shapes.
+  // The grid is a LineSegments with a geometry and a material of its own, and the
+  // previous two rounds of this fixed the rebuild path and then the shape list;
+  // a list of what to remember is a list the next added object gets left out of.
+  // So teardown takes the scene's children, whatever they are, and the renderer
+  // goes after them.
+  // `scene` is assigned in init, which a teardown before first render skips.
+  if (scene) for (const child of [...scene.children]) removeAndDispose(scene, child);
   sceneObjects = [];
   if (renderer) {
     renderer.dispose();
