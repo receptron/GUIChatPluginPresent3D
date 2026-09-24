@@ -305,6 +305,11 @@ function cleanup() {
   if (animationId) {
     cancelAnimationFrame(animationId);
   }
+  // The renderer's own dispose does not walk what it was drawing, so the last
+  // script rendered before the view closes would keep its geometries and
+  // materials. Same ownership as the rebuild above.
+  sceneObjects.forEach((obj) => removeAndDispose(scene, obj));
+  sceneObjects = [];
   if (renderer) {
     renderer.dispose();
   }

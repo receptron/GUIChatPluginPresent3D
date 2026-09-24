@@ -199,6 +199,13 @@ const snippetFailures = parseEmbeddedSnippets();
 //     the form the tool was teaching the model to write when this core arrived.
 //
 // Nothing parsed either before, so the tool could teach a script the parser refuses.
+//
+// What it does NOT cover, named so the next reader knows the shape of the hole: a
+// line with two statements INSIDE a multi-line block in one of these prose strings
+// (`cube {` / `  size 1 color 1 0 0` / `}`). Detecting that means deciding which
+// prose lines are script lines, and a sweep that guesses wrong reports a snippet
+// that is not one — worse than the gap. The fenced blocks and the samples are
+// parsed whole, so this only reaches snippets written inline in prose.
 function parseEmbeddedSnippets(): number {
   const files = ['README.md', 'src/core/definition.ts', 'src/vue/index.ts'];
   const shapeWord = 'cube|sphere|cylinder|cone|torus|group|difference|union|intersection|path|extrude|lathe|fill|text';
