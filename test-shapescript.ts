@@ -8,6 +8,7 @@ import * as THREE from 'three';
 import { parseShapeScript } from './src/shapescript/parser';
 import { astToThreeJS } from './src/shapescript/toThreeJS';
 import { SceneNode } from './src/shapescript/types';
+import { samples } from './src/core/samples';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -157,10 +158,36 @@ if (failed > 0) {
 console.log('\nRunning ShapeScript transform regression tests...\n');
 const transformFailures = runTransformRegressionTests();
 
+console.log('\nParsing the scripts this plugin ships as samples...\n');
+const sampleFailures = parseSamples();
+
+// The examples above live as .shape files; these live inside samples.ts, and
+// nothing parsed them before — so a parser change could reject the plugin's own
+// starting points while every example still passed.
+function parseSamples(): number {
+  let failures = 0;
+  for (const [index, sample] of samples.entries()) {
+    const script = String((sample.args as { script?: string } | undefined)?.script ?? '');
+    if (!script) {
+      console.log(`- ${sample.name}: no script to parse`);
+      continue;
+    }
+    try {
+      parseShapeScript(script);
+      console.log(`\u2705 ${sample.name}`);
+    } catch (error) {
+      failures += 1;
+      console.log(`\u274C ${sample.name} (sample ${index}) - ${error instanceof Error ? error.message : String(error)}`);
+    }
+  }
+  console.log(`\nSample scripts: ${samples.length - failures}/${samples.length} parsed`);
+  return failures;
+}
+
 // Reported and then exited 0 is how a broken parse or a changed transform stayed
 // green in CI. The counts above are the report; this is what makes them a gate.
-if (failed > 0 || transformFailures > 0) {
-  console.log(`\n${failed} example(s) and ${transformFailures} transform test(s) failed.`);
+if (failed > 0 || transformFailures > 0 || sampleFailures > 0) {
+  console.log(`\n${failed} example(s), ${transformFailures} transform test(s) and ${sampleFailures} sample script(s) failed.`);
   process.exit(1);
 }
 
