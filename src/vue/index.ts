@@ -30,7 +30,10 @@ export const SYSTEM_PROMPT = `Use the ${TOOL_NAME} tool to create interactive 3D
 
 For loops with variables (use loop variable in calculations):
 for i in 1 to 5 {
-    cube { position (i * 2 - 6) 0 0 size 1 }
+    cube {
+        position (i * 2 - 6) 0 0
+        size 1
+    }
 }
 
 For loops with step:
@@ -81,7 +84,10 @@ Parametric surface:
 for x in -5 to 5 {
     for z in -5 to 5 {
         define y (sin(x * 0.5) * cos(z * 0.5))
-        cube { position (x * 0.3) y (z * 0.3) size 0.2 }
+        cube {
+            position (x * 0.3) y (z * 0.3)
+            size 0.2
+        }
     }
 }
 

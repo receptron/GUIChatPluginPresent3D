@@ -186,8 +186,70 @@ function parseSamples(): number {
 
 // Reported and then exited 0 is how a broken parse or a changed transform stayed
 // green in CI. The counts above are the report; this is what makes them a gate.
-if (failed > 0 || transformFailures > 0 || sampleFailures > 0) {
-  console.log(`\n${failed} example(s), ${transformFailures} transform test(s) and ${sampleFailures} sample script(s) failed.`);
+
+console.log('\nParsing the snippets this plugin SHOWS people...\n');
+const snippetFailures = parseEmbeddedSnippets();
+
+// Two sweeps over the examples this plugin shows a person or hands the model, both
+// deciding by RUNNING the parser rather than by matching a shape:
+//
+//   - every fenced block in the README, which is unambiguous to extract;
+//   - every block written on ONE line in the README, the tool definition or the
+//     system prompt. That is the form the one-statement-per-line rule rejects, and
+//     the form the tool was teaching the model to write when this core arrived.
+//
+// Nothing parsed either before, so the tool could teach a script the parser refuses.
+function parseEmbeddedSnippets(): number {
+  const files = ['README.md', 'src/core/definition.ts', 'src/vue/index.ts'];
+  const shapeWord = 'cube|sphere|cylinder|cone|torus|group|difference|union|intersection|path|extrude|lathe|fill|text';
+  let failures = 0;
+
+  const report = (label: string, snippets: string[]): void => {
+    let bad = 0;
+    for (const snippet of snippets) {
+      try {
+        parseShapeScript(snippet);
+      } catch (error) {
+        bad += 1;
+        failures += 1;
+        console.log(`\u274C ${label} - ${error instanceof Error ? error.message : String(error)}`);
+        console.log(`   ${snippet.trim().split('\n')[0]}`);
+      }
+    }
+    console.log(`${bad === 0 ? '\u2705' : '\u274C'} ${label}: ${snippets.length - bad}/${snippets.length} parsed`);
+  };
+
+  // The fence's own language tag decides — a `typescript` block that happens to
+  // start with a word this language also uses is not a script.
+  const readme = fs.readFileSync('README.md', 'utf8');
+  const fenced: string[] = [];
+  let language: string | null = null;
+  let current: string[] = [];
+  for (const line of readme.split('\n')) {
+    if (line.trim().startsWith('```')) {
+      if (language !== null) {
+        if (language === 'shapescript' || language === 'shape') fenced.push(current.join('\n'));
+        language = null;
+      } else {
+        language = line.trim().slice(3).trim().toLowerCase();
+      }
+      current = [];
+      continue;
+    }
+    if (language !== null) current.push(line);
+  }
+  report('README.md shapescript blocks', fenced);
+
+  for (const file of files) {
+    const text = fs.readFileSync(file, 'utf8');
+    const oneLine = new RegExp(`\\b(?:${shapeWord})\\s*\\{[^{}]*\\}`, 'g');
+    report(`${file} one-line blocks`, [...text.matchAll(oneLine)].map((match) => match[0]));
+  }
+  return failures;
+}
+
+if (failed > 0 || transformFailures > 0 || sampleFailures > 0 || snippetFailures > 0) {
+  console.log(`\n${failed} example(s), ${transformFailures} transform test(s), ${sampleFailures} sample script(s) and ${snippetFailures} shown snippet(s) failed.`);
   process.exit(1);
 }
 

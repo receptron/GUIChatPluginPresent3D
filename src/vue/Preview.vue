@@ -14,6 +14,7 @@ import type { ToolResult } from "gui-chat-protocol";
 import type { Present3DToolData } from "../core/types";
 import { parseShapeScript } from "../shapescript/parser";
 import { astToThreeJS } from "../shapescript/toThreeJS";
+import { removeAndDispose } from "../shapescript/dispose";
 
 const props = defineProps<{
   result: ToolResult<Present3DToolData>;
@@ -106,9 +107,11 @@ function reloadScene() {
   if (!scene || !props.result.data?.script) return;
 
   try {
-    // Remove old objects
+    // Remove old objects, with their geometries and materials — a preview reloads
+    // whenever its result changes.
     if (sceneGroup) {
-      scene.remove(sceneGroup);
+      removeAndDispose(scene, sceneGroup);
+      sceneGroup = null;
     }
 
     // Parse and create new objects
@@ -123,6 +126,12 @@ function reloadScene() {
 function cleanup() {
   if (animationId) {
     cancelAnimationFrame(animationId);
+  }
+  // The group goes with the renderer: disposing the renderer frees its own GPU
+  // resources, not the geometries and materials of what it was drawing.
+  if (sceneGroup) {
+    removeAndDispose(scene ?? undefined, sceneGroup);
+    sceneGroup = null;
   }
   if (renderer) {
     renderer.dispose();
