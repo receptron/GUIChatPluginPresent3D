@@ -155,18 +155,30 @@ if (failed > 0) {
 }
 
 console.log('\nRunning ShapeScript transform regression tests...\n');
-runTransformRegressionTests();
+const transformFailures = runTransformRegressionTests();
 
-function runTransformRegressionTests(): void {
+// Reported and then exited 0 is how a broken parse or a changed transform stayed
+// green in CI. The counts above are the report; this is what makes them a gate.
+if (failed > 0 || transformFailures > 0) {
+  console.log(`\n${failed} example(s) and ${transformFailures} transform test(s) failed.`);
+  process.exit(1);
+}
+
+function runTransformRegressionTests(): number {
   const tests: TransformTestCase[] = [
     {
+      // `rotate` takes roll yaw pitch in HALF-TURNS about Z, Y and X, as the
+      // language itself does — so a roll of 0.5 is a quarter turn about Z and
+      // the translate that follows goes along the rotated axes. (A pitch about
+      // X, which is what `rotate 0 0 0.25` is, would leave an X translate where
+      // it was, which is why the old script tested nothing here.)
       description: 'rotate then translate uses rotated axes',
       script: `
-        rotate 0 0 0.25
+        rotate 0.5 0 0
         translate 1 0 0
         cube
       `,
-      expectedPositions: [[0, 1, 0]],
+      expectedPositions: [[0, -1, 0]],
     },
     {
       description: 'scale affects subsequent translations',
@@ -223,6 +235,7 @@ function runTransformRegressionTests(): void {
   }
 
   console.log(`\nTransform tests: ${passed}/${tests.length} passed`);
+  return tests.length - passed;
 }
 
 function collectMeshPositions(root: THREE.Object3D): THREE.Vector3[] {
