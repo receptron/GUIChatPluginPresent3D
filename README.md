@@ -98,7 +98,10 @@ interface Present3DToolData {
 ```shapescript
 define radius 2
 define red (1 0 0)
-sphere { size radius color red }
+sphere {
+    size radius
+    color red
+}
 ```
 
 ### Control Flow

@@ -51,6 +51,7 @@ import type { ToolResult } from "gui-chat-protocol";
 import type { Present3DToolData } from "../core/types";
 import { parseShapeScript } from "../shapescript/parser";
 import { astToThreeJS } from "../shapescript/toThreeJS";
+import { removeAndDispose } from "../shapescript/dispose";
 
 interface CameraState {
   position?: { x: number; y: number; z: number };
@@ -189,8 +190,11 @@ function handleResize() {
 
 function loadShapeScript() {
   try {
-    // Clear previous scene objects
-    sceneObjects.forEach((obj) => scene.remove(obj));
+    // Clear previous scene objects. Removing one from the scene does not free its
+    // geometry or its material, and this runs on every script edit and wireframe
+    // toggle — so the core's own disposer is what keeps a long session from
+    // growing a copy of every shape it has ever drawn.
+    sceneObjects.forEach((obj) => removeAndDispose(scene, obj));
     sceneObjects = [];
 
     // Parse ShapeScript into AST
@@ -301,6 +305,15 @@ function cleanup() {
   if (animationId) {
     cancelAnimationFrame(animationId);
   }
+  // Everything this view put in the scene is its to free — not just the shapes.
+  // The grid is a LineSegments with a geometry and a material of its own, and the
+  // previous two rounds of this fixed the rebuild path and then the shape list;
+  // a list of what to remember is a list the next added object gets left out of.
+  // So teardown takes the scene's children, whatever they are, and the renderer
+  // goes after them.
+  // `scene` is assigned in init, which a teardown before first render skips.
+  if (scene) for (const child of [...scene.children]) removeAndDispose(scene, child);
+  sceneObjects = [];
   if (renderer) {
     renderer.dispose();
   }

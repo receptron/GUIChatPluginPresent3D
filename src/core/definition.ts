@@ -27,13 +27,19 @@ export const TOOL_DEFINITION = {
 ### Variables:
 define radius 2
 define red (1 0 0)
-sphere { size radius color red }
+sphere {
+    size radius
+    color red
+}
 
 ### Control Flow:
 
 For loops with variables:
 for i in 1 to 5 {
-    cube { position (i * 2) 0 0 size 1 }
+    cube {
+        position (i * 2) 0 0
+        size 1
+    }
 }
 
 For loops with step:
@@ -87,8 +93,13 @@ union, difference, intersection, xor, stencil
 
 Example:
 difference {
-    sphere { size 2 color (1 0.5 0) }
-    cube { size 1.5 }
+    sphere {
+        size 2
+        color (1 0.5 0)
+    }
+    cube {
+        size 1.5
+    }
 }
 
 ### Comments:
@@ -101,7 +112,10 @@ difference {
 Linear arrangement with expressions:
 define spacing 1.5
 for i in 1 to 4 {
-    cylinder { position ((i - 2.5) * spacing) 0 0 size 0.4 1 }
+    cylinder {
+        position ((i - 2.5) * spacing) 0 0
+        size 0.4 1
+    }
 }
 
 Circular pattern:
@@ -119,11 +133,19 @@ Conditional geometry:
 define makeHollow 1
 if makeHollow {
     difference {
-        sphere { size 2 color (1 0 0) }
-        sphere { size 1.7 }
+        sphere {
+            size 2
+            color (1 0 0)
+        }
+        sphere {
+            size 1.7
+        }
     }
 } else {
-    sphere { size 2 color (1 0 0) }
+    sphere {
+        size 2
+        color (1 0 0)
+    }
 }
 
 Mathematical visualization:
