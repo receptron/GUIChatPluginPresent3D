@@ -1,6 +1,6 @@
 {
   "name": "@gui-chat-plugin/present3d",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "3D shape presentation plugin using ShapeScript for GUI Chat applications",
   "type": "module",
   "main": "./dist/index.cjs",
