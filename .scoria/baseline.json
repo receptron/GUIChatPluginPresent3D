@@ -1,0 +1,1323 @@
+{
+  "report": {
+    "schemaVersion": 1,
+    "root": ".",
+    "label": "@gui-chat-plugin/present3d",
+    "profile": "library",
+    "stacks": [
+      "vue",
+      "ts"
+    ],
+    "complete": false,
+    "size": {
+      "files": 25,
+      "sloc": 8150,
+      "testSloc": 0
+    },
+    "dimensions": [
+      {
+        "dimension": "architecture",
+        "status": "experimental",
+        "score": 60,
+        "coverage": 0.75,
+        "metrics": [
+          {
+            "metric": "knip.unused_export_ratio",
+            "value": 1.32,
+            "state": "ok",
+            "scale": {
+              "good": 0,
+              "bad": 0.2
+            },
+            "weight": 0.3,
+            "points": 0
+          },
+          {
+            "metric": "knip.unused_file_ratio",
+            "value": 0,
+            "state": "ok",
+            "scale": {
+              "good": 0,
+              "bad": 0.3
+            },
+            "weight": 0.25,
+            "points": 33.3333
+          },
+          {
+            "metric": "knip.unused_dependencies",
+            "value": 0,
+            "state": "ok",
+            "scale": {
+              "good": 0,
+              "bad": 10
+            },
+            "weight": 0.2,
+            "points": 26.6667
+          },
+          {
+            "metric": "circular.cycle_count",
+            "value": 0,
+            "state": "skipped",
+            "scale": {
+              "good": 0,
+              "bad": 8
+            },
+            "weight": 0.25,
+            "points": 0
+          }
+        ],
+        "confidence": "medium",
+        "confidenceReason": "not run: circular (madge produced no readable report)"
+      },
+      {
+        "dimension": "correctness",
+        "status": "experimental",
+        "score": 85.8895,
+        "coverage": 1,
+        "metrics": [
+          {
+            "metric": "oxlint.errors_per_kloc",
+            "value": 0.3681,
+            "state": "ok",
+            "scale": {
+              "good": 0,
+              "bad": 3
+            },
+            "weight": 0.6,
+            "density": true,
+            "points": 52.638
+          },
+          {
+            "metric": "oxlint.violations_per_kloc",
+            "value": 1.3497,
+            "state": "ok",
+            "scale": {
+              "good": 0,
+              "bad": 8
+            },
+            "weight": 0.4,
+            "density": true,
+            "points": 33.2515,
+            "topContributors": [
+              {
+                "file": "test-shapescript.ts",
+                "value": 3
+              },
+              {
+                "file": "src/shapescript/toThreeJS.ts",
+                "value": 3
+              },
+              {
+                "file": "src/shapescript/parser.ts",
+                "value": 2
+              },
+              {
+                "file": "src/shapescript/builders.ts",
+                "value": 1
+              },
+              {
+                "file": "src/vue/View.vue",
+                "value": 1
+              }
+            ]
+          }
+        ],
+        "confidence": "high",
+        "confidenceReason": "4 suppressions in scope"
+      },
+      {
+        "dimension": "documentation",
+        "status": "experimental",
+        "score": 100.0001,
+        "coverage": 0.75,
+        "metrics": [
+          {
+            "metric": "readme-contract.has_readme",
+            "value": 1,
+            "state": "ok",
+            "scale": {
+              "good": 1,
+              "bad": 0
+            },
+            "weight": 0.35,
+            "points": 46.6667
+          },
+          {
+            "metric": "readme-contract.readme_words",
+            "value": 460,
+            "state": "ok",
+            "scale": {
+              "good": 120,
+              "bad": 30
+            },
+            "weight": 0.2,
+            "points": 26.6667
+          },
+          {
+            "metric": "readme-contract.documented_flag_ratio",
+            "value": 0,
+            "state": "skipped",
+            "scale": {
+              "good": 1,
+              "bad": 0.5
+            },
+            "weight": 0.25,
+            "points": 0
+          },
+          {
+            "metric": "comment-quality.marker_per_kloc",
+            "value": 0,
+            "state": "ok",
+            "scale": {
+              "good": 0,
+              "bad": 2
+            },
+            "weight": 0.2,
+            "density": true,
+            "points": 26.6667,
+            "topContributors": []
+          }
+        ],
+        "confidence": "high",
+        "confidenceReason": "4 suppressions in scope"
+      },
+      {
+        "dimension": "integrity",
+        "status": "experimental",
+        "score": 69.0002,
+        "coverage": 1,
+        "metrics": [
+          {
+            "metric": "suppression-scan.source_per_kloc",
+            "value": 0.4908,
+            "state": "ok",
+            "scale": {
+              "good": 0,
+              "bad": 5
+            },
+            "weight": 0.3,
+            "density": true,
+            "points": 27.0552,
+            "topContributors": [
+              {
+                "file": "src/shapescript/toThreeJS.ts",
+                "value": 2
+              },
+              {
+                "file": "demo/App.vue",
+                "value": 1
+              },
+              {
+                "file": "src/shapescript/text.ts",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "metric": "suppression-scan.unreasoned_ratio",
+            "value": 0.5,
+            "state": "ok",
+            "scale": {
+              "good": 0,
+              "bad": 1
+            },
+            "weight": 0.2,
+            "points": 10
+          },
+          {
+            "metric": "suppression-scan.test_count",
+            "value": 0,
+            "state": "ok",
+            "scale": {
+              "good": 0,
+              "bad": 200
+            },
+            "weight": 0.1,
+            "points": 10
+          },
+          {
+            "metric": "config-integrity.gap_ratio",
+            "value": 0.3333,
+            "state": "ok",
+            "scale": {
+              "good": 0,
+              "bad": 0.6
+            },
+            "weight": 0.25,
+            "points": 11.1125
+          },
+          {
+            "metric": "ci-integrity.gap_ratio",
+            "value": 0.1667,
+            "state": "ok",
+            "scale": {
+              "good": 0,
+              "bad": 0.6
+            },
+            "weight": 0.15,
+            "points": 10.8325
+          }
+        ],
+        "confidence": "high",
+        "confidenceReason": "no suppression signal wired"
+      },
+      {
+        "dimension": "readability",
+        "status": "experimental",
+        "score": 45.3129,
+        "coverage": 1,
+        "metrics": [
+          {
+            "metric": "file-shape.sloc_p95",
+            "value": 2068,
+            "state": "ok",
+            "scale": {
+              "good": 150,
+              "bad": 800
+            },
+            "weight": 0.3,
+            "points": 0,
+            "topContributors": [
+              {
+                "file": "src/shapescript/toThreeJS.ts",
+                "value": 2249
+              },
+              {
+                "file": "src/shapescript/parser.ts",
+                "value": 2068
+              },
+              {
+                "file": "src/shapescript/evaluator.ts",
+                "value": 851
+              },
+              {
+                "file": "src/shapescript/types.ts",
+                "value": 544
+              },
+              {
+                "file": "src/vue/View.vue",
+                "value": 436
+              }
+            ]
+          },
+          {
+            "metric": "file-shape.max_file_sloc",
+            "value": 2249,
+            "state": "ok",
+            "scale": {
+              "good": 300,
+              "bad": 2000
+            },
+            "weight": 0.2,
+            "points": 0
+          },
+          {
+            "metric": "file-shape.god_file_count",
+            "value": 4,
+            "state": "ok",
+            "scale": {
+              "good": 0,
+              "bad": 20
+            },
+            "weight": 0.15,
+            "points": 12
+          },
+          {
+            "metric": "jscpd.duplicated_lines_pct",
+            "value": 0,
+            "state": "ok",
+            "scale": {
+              "good": 0,
+              "bad": 10
+            },
+            "weight": 0.2,
+            "points": 20,
+            "topContributors": []
+          },
+          {
+            "metric": "oxlint.violations_per_kloc",
+            "value": 1.3497,
+            "state": "ok",
+            "scale": {
+              "good": 0,
+              "bad": 12
+            },
+            "weight": 0.15,
+            "density": true,
+            "points": 13.3129,
+            "topContributors": [
+              {
+                "file": "test-shapescript.ts",
+                "value": 3
+              },
+              {
+                "file": "src/shapescript/toThreeJS.ts",
+                "value": 3
+              },
+              {
+                "file": "src/shapescript/parser.ts",
+                "value": 2
+              },
+              {
+                "file": "src/shapescript/builders.ts",
+                "value": 1
+              },
+              {
+                "file": "src/vue/View.vue",
+                "value": 1
+              }
+            ]
+          }
+        ],
+        "confidence": "high",
+        "confidenceReason": "4 suppressions in scope"
+      },
+      {
+        "dimension": "security",
+        "status": "experimental",
+        "score": 93,
+        "coverage": 1,
+        "metrics": [
+          {
+            "metric": "audit.critical",
+            "value": 0,
+            "state": "ok",
+            "scale": {
+              "good": 0,
+              "bad": 1
+            },
+            "weight": 0.4,
+            "points": 40
+          },
+          {
+            "metric": "audit.high",
+            "value": 1,
+            "state": "ok",
+            "scale": {
+              "good": 0,
+              "bad": 5
+            },
+            "weight": 0.35,
+            "points": 28
+          },
+          {
+            "metric": "audit.moderate",
+            "value": 0,
+            "state": "ok",
+            "scale": {
+              "good": 0,
+              "bad": 20
+            },
+            "weight": 0.25,
+            "points": 25
+          }
+        ],
+        "confidence": "high",
+        "confidenceReason": "no suppression signal wired"
+      },
+      {
+        "dimension": "test-coverage",
+        "status": "experimental",
+        "score": 0,
+        "coverage": 0.3,
+        "metrics": [
+          {
+            "metric": "test-presence.test_to_source_ratio",
+            "value": 0,
+            "state": "ok",
+            "scale": {
+              "good": 0.5,
+              "bad": 0.05
+            },
+            "weight": 0.3,
+            "points": 0
+          },
+          {
+            "metric": "coverage.line_pct",
+            "value": 0,
+            "state": "skipped",
+            "scale": {
+              "good": 90,
+              "bad": 40
+            },
+            "weight": 0.3,
+            "points": 0
+          },
+          {
+            "metric": "coverage.branch_pct",
+            "value": 0,
+            "state": "skipped",
+            "scale": {
+              "good": 85,
+              "bad": 30
+            },
+            "weight": 0.25,
+            "points": 0
+          },
+          {
+            "metric": "coverage.function_pct",
+            "value": 0,
+            "state": "skipped",
+            "scale": {
+              "good": 90,
+              "bad": 40
+            },
+            "weight": 0.15,
+            "points": 0
+          }
+        ],
+        "confidence": "low",
+        "confidenceReason": "not run: coverage (no coverage report in coverage/; scoria does not run the project's tests)"
+      },
+      {
+        "dimension": "type-safety",
+        "status": "experimental",
+        "score": 100,
+        "coverage": 1,
+        "metrics": [
+          {
+            "metric": "source-mix.untyped_sloc_ratio",
+            "value": 0,
+            "state": "ok",
+            "scale": {
+              "good": 0,
+              "bad": 0.5
+            },
+            "weight": 0.3,
+            "points": 30
+          },
+          {
+            "metric": "source-mix.untyped_file_ratio",
+            "value": 0,
+            "state": "ok",
+            "scale": {
+              "good": 0,
+              "bad": 0.5
+            },
+            "weight": 0.2,
+            "points": 20,
+            "topContributors": []
+          },
+          {
+            "metric": "tsc.type_errors_per_kloc",
+            "value": 0,
+            "state": "ok",
+            "scale": {
+              "good": 0,
+              "bad": 2
+            },
+            "weight": 0.5,
+            "density": true,
+            "points": 50
+          }
+        ],
+        "confidence": "high",
+        "confidenceReason": "4 suppressions in scope"
+      },
+      {
+        "dimension": "ui-consistency",
+        "status": "experimental",
+        "score": 76.4,
+        "coverage": 1,
+        "metrics": [
+          {
+            "metric": "ui-token.color_cardinality",
+            "value": 22,
+            "state": "ok",
+            "scale": {
+              "good": 20,
+              "bad": 120
+            },
+            "weight": 0.3,
+            "points": 29.4,
+            "topContributors": [
+              {
+                "file": "src/vue/View.vue",
+                "value": 19
+              },
+              {
+                "file": "src/vue/Preview.vue",
+                "value": 3
+              },
+              {
+                "file": "demo/App.vue",
+                "value": 0
+              }
+            ]
+          },
+          {
+            "metric": "ui-token.spacing_cardinality",
+            "value": 15,
+            "state": "ok",
+            "scale": {
+              "good": 10,
+              "bad": 60
+            },
+            "weight": 0.3,
+            "points": 27,
+            "topContributors": [
+              {
+                "file": "src/vue/View.vue",
+                "value": 10
+              },
+              {
+                "file": "src/vue/Preview.vue",
+                "value": 4
+              },
+              {
+                "file": "demo/App.vue",
+                "value": 3
+              }
+            ]
+          },
+          {
+            "metric": "ui-token.inline_style_per_kloc",
+            "value": 0,
+            "state": "ok",
+            "scale": {
+              "good": 0,
+              "bad": 10
+            },
+            "weight": 0.2,
+            "density": true,
+            "points": 20
+          },
+          {
+            "metric": "ui-token.style_block_ratio",
+            "value": 0.6667,
+            "state": "ok",
+            "scale": {
+              "good": 0,
+              "bad": 0.6
+            },
+            "weight": 0.2,
+            "points": 0
+          }
+        ],
+        "confidence": "high",
+        "confidenceReason": "4 suppressions in scope"
+      }
+    ],
+    "metrics": {
+      "suppression-scan.source_count": 4,
+      "suppression-scan.test_count": 0,
+      "suppression-scan.source_per_kloc": 0.4908,
+      "suppression-scan.unreasoned_source_count": 2,
+      "suppression-scan.unreasoned_ratio": 0.5,
+      "file-shape.sloc_p95": 2068,
+      "file-shape.max_file_sloc": 2249,
+      "file-shape.god_file_count": 4,
+      "file-shape.source_file_count": 22,
+      "file-shape.source_sloc": 8150,
+      "source-mix.untyped_file_ratio": 0,
+      "source-mix.untyped_sloc_ratio": 0,
+      "source-mix.untyped_file_count": 0,
+      "source-mix.typed_file_count": 22,
+      "config-integrity.gap_ratio": 0.3333,
+      "config-integrity.gap_count": 3,
+      "ci-integrity.gap_ratio": 0.1667,
+      "ci-integrity.gap_count": 1,
+      "ci-integrity.workflow_count": 2,
+      "oxlint.violations_per_kloc": 1.3497,
+      "oxlint.violations": 11,
+      "oxlint.errors_per_kloc": 0.3681,
+      "jscpd.duplicated_lines_pct": 0,
+      "jscpd.clone_count": 0,
+      "tsc.type_errors": 0,
+      "tsc.type_errors_per_kloc": 0,
+      "knip.unused_files": 0,
+      "knip.unused_file_ratio": 0,
+      "knip.unused_export_ratio": 1.32,
+      "knip.unused_exports": 33,
+      "knip.unused_dependencies": 0,
+      "audit.critical": 0,
+      "audit.high": 1,
+      "audit.moderate": 0,
+      "audit.low": 0,
+      "test-presence.test_to_source_ratio": 0,
+      "test-presence.test_sloc": 0,
+      "test-presence.test_file_count": 0,
+      "readme-contract.has_readme": 1,
+      "readme-contract.readme_words": 460,
+      "comment-quality.marker_per_kloc": 0,
+      "comment-quality.marker_count": 0,
+      "comment-quality.comment_density": 0.185,
+      "ui-token.color_cardinality": 22,
+      "ui-token.spacing_cardinality": 15,
+      "ui-token.inline_style_per_kloc": 0,
+      "ui-token.style_block_ratio": 0.6667,
+      "ui-token.ui_file_count": 3
+    },
+    "findings": [
+      {
+        "rule": "as-any-no-reason",
+        "severity": "error",
+        "file": "src/shapescript/text.ts",
+        "line": 20,
+        "message": "bypasses the type checker, with no reason given",
+        "probe": "suppression-scan",
+        "dimension": "integrity",
+        "tier": 0
+      },
+      {
+        "rule": "as-any-no-reason",
+        "severity": "error",
+        "file": "src/shapescript/toThreeJS.ts",
+        "line": 1448,
+        "message": "bypasses the type checker, with no reason given",
+        "probe": "suppression-scan",
+        "dimension": "integrity",
+        "tier": 0
+      },
+      {
+        "rule": "god-file",
+        "severity": "warning",
+        "file": "src/shapescript/evaluator.ts",
+        "line": 1,
+        "message": "851 lines (limit 500)",
+        "probe": "file-shape",
+        "dimension": "readability",
+        "tier": 0
+      },
+      {
+        "rule": "god-file",
+        "severity": "warning",
+        "file": "src/shapescript/parser.ts",
+        "line": 1,
+        "message": "2068 lines (limit 500)",
+        "probe": "file-shape",
+        "dimension": "readability",
+        "tier": 0
+      },
+      {
+        "rule": "god-file",
+        "severity": "warning",
+        "file": "src/shapescript/toThreeJS.ts",
+        "line": 1,
+        "message": "2249 lines (limit 500)",
+        "probe": "file-shape",
+        "dimension": "readability",
+        "tier": 0
+      },
+      {
+        "rule": "god-file",
+        "severity": "warning",
+        "file": "src/shapescript/types.ts",
+        "line": 1,
+        "message": "544 lines (limit 500)",
+        "probe": "file-shape",
+        "dimension": "readability",
+        "tier": 0
+      },
+      {
+        "rule": "script-test",
+        "severity": "warning",
+        "file": "package.json",
+        "line": 1,
+        "message": "No `test` script",
+        "probe": "config-integrity",
+        "dimension": "integrity",
+        "tier": 0
+      },
+      {
+        "rule": "script-typecheck",
+        "severity": "warning",
+        "file": "package.json",
+        "line": 1,
+        "message": "No `typecheck` script",
+        "probe": "config-integrity",
+        "dimension": "integrity",
+        "tier": 0
+      },
+      {
+        "rule": "formatter-missing",
+        "severity": "warning",
+        "file": "package.json",
+        "line": 1,
+        "message": "No formatter is installed",
+        "probe": "config-integrity",
+        "dimension": "integrity",
+        "tier": 0
+      },
+      {
+        "rule": "ci-step-typecheck",
+        "severity": "warning",
+        "file": "package.json",
+        "line": 1,
+        "message": "CI does not run `typecheck`",
+        "probe": "ci-integrity",
+        "dimension": "integrity",
+        "tier": 0
+      },
+      {
+        "rule": "oxlint/no-thenable",
+        "severity": "error",
+        "file": "src/shapescript/parser.ts",
+        "line": 1,
+        "message": "Do not add `then` to an object.",
+        "probe": "oxlint",
+        "dimension": "correctness",
+        "tier": 0
+      },
+      {
+        "rule": "oxlint/no-thenable",
+        "severity": "error",
+        "file": "src/shapescript/parser.ts",
+        "line": 1,
+        "message": "Do not add `then` to an object.",
+        "probe": "oxlint",
+        "dimension": "correctness",
+        "tier": 0
+      },
+      {
+        "rule": "oxlint/no-shadow",
+        "severity": "warning",
+        "file": "src/shapescript/builders.ts",
+        "line": 1,
+        "message": "'_' is already declared in the upper scope.",
+        "probe": "oxlint",
+        "dimension": "correctness",
+        "tier": 0
+      },
+      {
+        "rule": "oxlint/no-useless-spread",
+        "severity": "error",
+        "file": "src/vue/View.vue",
+        "line": 1,
+        "message": "Using a spread operator here creates a new array unnecessarily.",
+        "probe": "oxlint",
+        "dimension": "correctness",
+        "tier": 0
+      },
+      {
+        "rule": "oxlint/no-map-spread",
+        "severity": "warning",
+        "file": "src/shapescript/evaluator.ts",
+        "line": 1,
+        "message": "Spreading to modify object properties in `map` calls is inefficient",
+        "probe": "oxlint",
+        "dimension": "correctness",
+        "tier": 0
+      },
+      {
+        "rule": "oxlint/no-shadow",
+        "severity": "warning",
+        "file": "test-shapescript.ts",
+        "line": 1,
+        "message": "'passed' is already declared in the upper scope.",
+        "probe": "oxlint",
+        "dimension": "correctness",
+        "tier": 0
+      },
+      {
+        "rule": "oxlint/no-underscore-dangle",
+        "severity": "warning",
+        "file": "test-shapescript.ts",
+        "line": 1,
+        "message": "Unexpected dangling '_' in '`__filename`'.",
+        "probe": "oxlint",
+        "dimension": "correctness",
+        "tier": 0
+      },
+      {
+        "rule": "oxlint/no-underscore-dangle",
+        "severity": "warning",
+        "file": "test-shapescript.ts",
+        "line": 1,
+        "message": "Unexpected dangling '_' in '`__dirname`'.",
+        "probe": "oxlint",
+        "dimension": "correctness",
+        "tier": 0
+      },
+      {
+        "rule": "oxlint/consistent-function-scoping",
+        "severity": "warning",
+        "file": "src/shapescript/toThreeJS.ts",
+        "line": 1,
+        "message": "Function `drawable` does not capture any variables from its parent scope",
+        "probe": "oxlint",
+        "dimension": "correctness",
+        "tier": 0
+      },
+      {
+        "rule": "oxlint/no-map-spread",
+        "severity": "warning",
+        "file": "src/shapescript/toThreeJS.ts",
+        "line": 1,
+        "message": "Spreading to modify object properties in `map` calls is inefficient",
+        "probe": "oxlint",
+        "dimension": "correctness",
+        "tier": 0
+      },
+      {
+        "rule": "oxlint/no-array-reverse",
+        "severity": "warning",
+        "file": "src/shapescript/toThreeJS.ts",
+        "line": 1,
+        "message": "Use `Array#toReversed()` instead of `Array#reverse()`.",
+        "probe": "oxlint",
+        "dimension": "correctness",
+        "tier": 0
+      },
+      {
+        "rule": "unused-export",
+        "severity": "warning",
+        "file": "src/shapescript/parser.ts",
+        "line": 1,
+        "message": "`Parser` is exported but never imported",
+        "probe": "knip",
+        "dimension": "architecture",
+        "tier": 1
+      },
+      {
+        "rule": "unused-export",
+        "severity": "warning",
+        "file": "src/shapescript/toThreeJS.ts",
+        "line": 1,
+        "message": "`sceneInfoOf` is exported but never imported",
+        "probe": "knip",
+        "dimension": "architecture",
+        "tier": 1
+      },
+      {
+        "rule": "unused-export",
+        "severity": "warning",
+        "file": "src/shapescript/toThreeJS.ts",
+        "line": 1,
+        "message": "`DEFAULT_MAX_NODES` is exported but never imported",
+        "probe": "knip",
+        "dimension": "architecture",
+        "tier": 1
+      },
+      {
+        "rule": "unused-export",
+        "severity": "warning",
+        "file": "src/shapescript/toThreeJS.ts",
+        "line": 1,
+        "message": "`DEFAULT_MAX_LOOP_ITERATIONS` is exported but never imported",
+        "probe": "knip",
+        "dimension": "architecture",
+        "tier": 1
+      },
+      {
+        "rule": "unused-export",
+        "severity": "warning",
+        "file": "src/shapescript/toThreeJS.ts",
+        "line": 1,
+        "message": "`MIN_DETAIL` is exported but never imported",
+        "probe": "knip",
+        "dimension": "architecture",
+        "tier": 1
+      },
+      {
+        "rule": "unused-export",
+        "severity": "warning",
+        "file": "src/shapescript/toThreeJS.ts",
+        "line": 1,
+        "message": "`MAX_DETAIL` is exported but never imported",
+        "probe": "knip",
+        "dimension": "architecture",
+        "tier": 1
+      },
+      {
+        "rule": "unused-export",
+        "severity": "warning",
+        "file": "src/shapescript/toThreeJS.ts",
+        "line": 1,
+        "message": "`DEFAULT_MAX_VERTICES` is exported but never imported",
+        "probe": "knip",
+        "dimension": "architecture",
+        "tier": 1
+      },
+      {
+        "rule": "unused-export",
+        "severity": "warning",
+        "file": "src/shapescript/toThreeJS.ts",
+        "line": 1,
+        "message": "`DEFAULT_MAX_DURATION_MS` is exported but never imported",
+        "probe": "knip",
+        "dimension": "architecture",
+        "tier": 1
+      },
+      {
+        "rule": "unused-export",
+        "severity": "warning",
+        "file": "src/shapescript/toThreeJS.ts",
+        "line": 1,
+        "message": "`ShapeScriptLimitError` is exported but never imported",
+        "probe": "knip",
+        "dimension": "architecture",
+        "tier": 1
+      },
+      {
+        "rule": "unused-export",
+        "severity": "warning",
+        "file": "src/shapescript/toThreeJS.ts",
+        "line": 1,
+        "message": "`Converter` is exported but never imported",
+        "probe": "knip",
+        "dimension": "architecture",
+        "tier": 1
+      },
+      {
+        "rule": "unused-export",
+        "severity": "warning",
+        "file": "src/shapescript/evaluator.ts",
+        "line": 1,
+        "message": "`RandomSequence` is exported but never imported",
+        "probe": "knip",
+        "dimension": "architecture",
+        "tier": 1
+      },
+      {
+        "rule": "unused-export",
+        "severity": "warning",
+        "file": "src/shapescript/evaluator.ts",
+        "line": 1,
+        "message": "`DEFAULT_RANDOM_SEED` is exported but never imported",
+        "probe": "knip",
+        "dimension": "architecture",
+        "tier": 1
+      },
+      {
+        "rule": "unused-export",
+        "severity": "warning",
+        "file": "src/shapescript/meshValues.ts",
+        "line": 1,
+        "message": "`meshPoints` is exported but never imported",
+        "probe": "knip",
+        "dimension": "architecture",
+        "tier": 1
+      },
+      {
+        "rule": "unused-export",
+        "severity": "warning",
+        "file": "src/shapescript/minkowski.ts",
+        "line": 1,
+        "message": "`MAX_MINKOWSKI_PIECES` is exported but never imported",
+        "probe": "knip",
+        "dimension": "architecture",
+        "tier": 1
+      },
+      {
+        "rule": "unused-export",
+        "severity": "warning",
+        "file": "src/shapescript/minkowski.ts",
+        "line": 1,
+        "message": "`MAX_HULL_POINTS` is exported but never imported",
+        "probe": "knip",
+        "dimension": "architecture",
+        "tier": 1
+      },
+      {
+        "rule": "unused-export",
+        "severity": "warning",
+        "file": "src/shapescript/minkowski.ts",
+        "line": 1,
+        "message": "`uniquePoints` is exported but never imported",
+        "probe": "knip",
+        "dimension": "architecture",
+        "tier": 1
+      },
+      {
+        "rule": "unused-export",
+        "severity": "warning",
+        "file": "src/shapescript/minkowski.ts",
+        "line": 1,
+        "message": "`worldTriangles` is exported but never imported",
+        "probe": "knip",
+        "dimension": "architecture",
+        "tier": 1
+      },
+      {
+        "rule": "unused-export",
+        "severity": "warning",
+        "file": "src/shapescript/minkowski.ts",
+        "line": 1,
+        "message": "`windingSign` is exported but never imported",
+        "probe": "knip",
+        "dimension": "architecture",
+        "tier": 1
+      },
+      {
+        "rule": "unused-export",
+        "severity": "warning",
+        "file": "src/shapescript/minkowski.ts",
+        "line": 1,
+        "message": "`isConvex` is exported but never imported",
+        "probe": "knip",
+        "dimension": "architecture",
+        "tier": 1
+      },
+      {
+        "rule": "unused-export",
+        "severity": "warning",
+        "file": "src/shapescript/minkowski.ts",
+        "line": 1,
+        "message": "`hullGeometry` is exported but never imported",
+        "probe": "knip",
+        "dimension": "architecture",
+        "tier": 1
+      },
+      {
+        "rule": "unused-export",
+        "severity": "warning",
+        "file": "src/vue/index.ts",
+        "line": 1,
+        "message": "`TOOL_NAME` is exported but never imported",
+        "probe": "knip",
+        "dimension": "architecture",
+        "tier": 1
+      },
+      {
+        "rule": "unused-export",
+        "severity": "warning",
+        "file": "src/vue/index.ts",
+        "line": 1,
+        "message": "`SYSTEM_PROMPT` is exported but never imported",
+        "probe": "knip",
+        "dimension": "architecture",
+        "tier": 1
+      },
+      {
+        "rule": "unused-export",
+        "severity": "warning",
+        "file": "src/vue/index.ts",
+        "line": 1,
+        "message": "`TOOL_DEFINITION` is exported but never imported",
+        "probe": "knip",
+        "dimension": "architecture",
+        "tier": 1
+      },
+      {
+        "rule": "unused-export",
+        "severity": "warning",
+        "file": "src/vue/index.ts",
+        "line": 1,
+        "message": "`executePresent3D` is exported but never imported",
+        "probe": "knip",
+        "dimension": "architecture",
+        "tier": 1
+      },
+      {
+        "rule": "unused-export",
+        "severity": "warning",
+        "file": "src/vue/index.ts",
+        "line": 1,
+        "message": "`pluginCore` is exported but never imported",
+        "probe": "knip",
+        "dimension": "architecture",
+        "tier": 1
+      },
+      {
+        "rule": "unused-export",
+        "severity": "warning",
+        "file": "src/vue/index.ts",
+        "line": 1,
+        "message": "`samples` is exported but never imported",
+        "probe": "knip",
+        "dimension": "architecture",
+        "tier": 1
+      },
+      {
+        "rule": "unused-export",
+        "severity": "warning",
+        "file": "src/vue/index.ts",
+        "line": 1,
+        "message": "`View` is exported but never imported",
+        "probe": "knip",
+        "dimension": "architecture",
+        "tier": 1
+      },
+      {
+        "rule": "unused-export",
+        "severity": "warning",
+        "file": "src/vue/index.ts",
+        "line": 1,
+        "message": "`Preview` is exported but never imported",
+        "probe": "knip",
+        "dimension": "architecture",
+        "tier": 1
+      },
+      {
+        "rule": "unused-export",
+        "severity": "warning",
+        "file": "src/vue/index.ts",
+        "line": 1,
+        "message": "`parseShapeScript` is exported but never imported",
+        "probe": "knip",
+        "dimension": "architecture",
+        "tier": 1
+      },
+      {
+        "rule": "unused-export",
+        "severity": "warning",
+        "file": "src/vue/index.ts",
+        "line": 1,
+        "message": "`astToThreeJS` is exported but never imported",
+        "probe": "knip",
+        "dimension": "architecture",
+        "tier": 1
+      },
+      {
+        "rule": "style-block",
+        "severity": "warning",
+        "file": "src/vue/Preview.vue",
+        "line": 1,
+        "message": "a style block, where a utility class or a token would be shared",
+        "probe": "ui-token",
+        "dimension": "ui-consistency",
+        "tier": 0
+      },
+      {
+        "rule": "style-block",
+        "severity": "warning",
+        "file": "src/vue/View.vue",
+        "line": 1,
+        "message": "a style block, where a utility class or a token would be shared",
+        "probe": "ui-token",
+        "dimension": "ui-consistency",
+        "tier": 0
+      }
+    ],
+    "probes": [
+      {
+        "probe": "suppression-scan",
+        "status": {
+          "kind": "ok"
+        },
+        "tools": []
+      },
+      {
+        "probe": "file-shape",
+        "status": {
+          "kind": "ok"
+        },
+        "tools": []
+      },
+      {
+        "probe": "source-mix",
+        "status": {
+          "kind": "ok"
+        },
+        "tools": []
+      },
+      {
+        "probe": "config-integrity",
+        "status": {
+          "kind": "ok"
+        },
+        "tools": []
+      },
+      {
+        "probe": "ci-integrity",
+        "status": {
+          "kind": "ok"
+        },
+        "tools": []
+      },
+      {
+        "probe": "oxlint",
+        "status": {
+          "kind": "ok"
+        },
+        "tools": [
+          "oxlint"
+        ]
+      },
+      {
+        "probe": "jscpd",
+        "status": {
+          "kind": "ok"
+        },
+        "tools": [
+          "jscpd"
+        ]
+      },
+      {
+        "probe": "tsc",
+        "status": {
+          "kind": "ok"
+        },
+        "tools": [
+          "vue-tsc"
+        ]
+      },
+      {
+        "probe": "knip",
+        "status": {
+          "kind": "ok"
+        },
+        "tools": [
+          "knip"
+        ]
+      },
+      {
+        "probe": "audit",
+        "status": {
+          "kind": "ok"
+        },
+        "tools": [
+          "yarn"
+        ]
+      },
+      {
+        "probe": "test-presence",
+        "status": {
+          "kind": "ok"
+        },
+        "tools": []
+      },
+      {
+        "probe": "coverage",
+        "status": {
+          "kind": "skipped",
+          "reason": "no coverage report in coverage/; scoria does not run the project's tests"
+        },
+        "tools": []
+      },
+      {
+        "probe": "circular",
+        "status": {
+          "kind": "skipped",
+          "reason": "madge produced no readable report"
+        },
+        "tools": []
+      },
+      {
+        "probe": "readme-contract",
+        "status": {
+          "kind": "ok"
+        },
+        "tools": []
+      },
+      {
+        "probe": "comment-quality",
+        "status": {
+          "kind": "ok"
+        },
+        "tools": []
+      },
+      {
+        "probe": "ui-token",
+        "status": {
+          "kind": "ok"
+        },
+        "tools": []
+      }
+    ],
+    "toolVersions": {
+      "oxlint": "Version: 1.88.0",
+      "jscpd": "4.3.0",
+      "vue-tsc": "6.0.3",
+      "knip": "6.41.0",
+      "yarn": "1.22.22"
+    },
+    "overall": {
+      "score": 69.9559,
+      "scoredDimensions": 9,
+      "comparable": false
+    }
+  },
+  "createdAt": "2026-10-18T04:13:23.113Z"
+}

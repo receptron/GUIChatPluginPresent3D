@@ -1,6 +1,7 @@
 # @gui-chat-plugin/present3d
 
 [![npm version](https://badge.fury.io/js/%40gui-chat-plugin%2Fpresent3d.svg)](https://www.npmjs.com/package/@gui-chat-plugin/present3d)
+[![scoria](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/receptron/GUIChatPluginPresent3D/badges/scoria.json)](https://github.com/receptron/GUIChatPluginPresent3D/actions/workflows/scoria.yml)
 
 3D shape presentation plugin using ShapeScript for GUI Chat applications. Create interactive 3D visualizations with a powerful DSL.
 
