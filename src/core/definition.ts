@@ -3,8 +3,7 @@ export const TOOL_NAME = "present3D";
 export const TOOL_DEFINITION = {
   type: "function" as const,
   name: TOOL_NAME,
-  description:
-    "Display interactive 3D visualizations using the full ShapeScript language with expressions, variables, control flow, and functions.",
+  description: "Display interactive 3D visualizations using the full ShapeScript language with expressions, variables, control flow, and functions.",
   parameters: {
     type: "object" as const,
     properties: {
