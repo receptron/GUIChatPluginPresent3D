@@ -42,7 +42,19 @@ import {
   Color,
   ShapeProperties,
 } from "./types";
-import { Evaluator, SymbolTable, Value, RGBA, MaterialValue, FunctionValue, isObjectValue, iterationValues, rgbaOf, valueToString, valuesEqual } from "./evaluator";
+import {
+  Evaluator,
+  SymbolTable,
+  Value,
+  RGBA,
+  MaterialValue,
+  FunctionValue,
+  isObjectValue,
+  iterationValues,
+  rgbaOf,
+  valueToString,
+  valuesEqual,
+} from "./evaluator";
 import { type MeshValue, type PolygonValue, type Point3, geometryFromPolygons, icosphereGeometry } from "./meshValues";
 import { disposeObject3D, disposeScratch } from "./dispose";
 import { minkowskiSum } from "./minkowski";

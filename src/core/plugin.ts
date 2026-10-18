@@ -2,10 +2,7 @@ import type { ToolContext, ToolPluginCore } from "gui-chat-protocol";
 import type { Present3DArgs, Present3DToolData, Present3DResult } from "./types";
 import { TOOL_NAME, TOOL_DEFINITION } from "./definition";
 
-export const present3D = async (
-  _context: ToolContext,
-  args: Present3DArgs,
-): Promise<Present3DResult> => {
+export const present3D = async (_context: ToolContext, args: Present3DArgs): Promise<Present3DResult> => {
   const { script, title } = args;
 
   // Validate that script is provided
@@ -26,8 +23,7 @@ export const pluginCore: ToolPluginCore<Present3DToolData, unknown, Present3DArg
   toolDefinition: TOOL_DEFINITION,
   execute: present3D,
   generatingMessage: "Creating 3D visualization...",
-  waitingMessage:
-    "Tell the user that the 3D visualization was created and will be presented shortly.",
+  waitingMessage: "Tell the user that the 3D visualization was created and will be presented shortly.",
   isEnabled: () => true,
 };
 

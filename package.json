@@ -29,7 +29,9 @@
     "preview": "vite preview",
     "test:shapescript": "tsx test-shapescript.ts",
     "test:wave": "tsx test-wave-script.ts",
-    "quality": "scoria"
+    "quality": "scoria",
+    "format": "prettier --write \"{src,demo}/**/*.{ts,tsx,vue,json,css}\" \"*.{ts,js,json}\"",
+    "format:check": "prettier --check \"{src,demo}/**/*.{ts,tsx,vue,json,css}\" \"*.{ts,js,json}\""
   },
   "dependencies": {
     "three": "^0.186.1",
@@ -48,13 +50,13 @@
     "eslint-plugin-vue": "^10.11.1",
     "globals": "^17.13.0",
     "gui-chat-protocol": "^2.3.0",
+    "prettier": "^3.9.10",
     "scoria": "^0.4.1",
     "tailwindcss": "^4.3.3",
     "tsx": "^4.23.15",
     "typescript": "~6.0.3",
     "typescript-eslint": "^8.71.2",
     "vite": "^8.3.4",
-    "vite-plugin-dts": "^5.1.2",
     "vue": "^3.5.44",
     "vue-eslint-parser": "^10.4.1",
     "vue-tsc": "^3.3.13"

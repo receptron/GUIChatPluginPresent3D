@@ -44,6 +44,9 @@ jobs:
           win-node-modules-${{ matrix.node-version }}-
     - run: yarn install
     - run: yarn run lint
+    # Windows checkouts get CRLF line endings, which prettier reports as unformatted.
+    - run: yarn run format:check
+      if: runner.os == 'Linux'
     - run: yarn run build
     - name: Run ShapeScript parser tests
       run: yarn run test:shapescript

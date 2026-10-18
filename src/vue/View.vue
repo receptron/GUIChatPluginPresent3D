@@ -8,37 +8,24 @@
           Reset Camera
         </button>
         <button @click="toggleWireframe" class="control-btn">
-          <span class="material-icons">{{
-            showWireframe ? "grid_off" : "grid_on"
-          }}</span>
+          <span class="material-icons">{{ showWireframe ? "grid_off" : "grid_on" }}</span>
           Wireframe
         </button>
         <button @click="toggleGrid" class="control-btn">
-          <span class="material-icons">{{
-            showGrid ? "visibility_off" : "visibility"
-          }}</span>
+          <span class="material-icons">{{ showGrid ? "visibility_off" : "visibility" }}</span>
           Grid
         </button>
       </div>
     </div>
 
-    <div v-if="parseError" class="error">
-      <strong>Parse Error:</strong> {{ parseError }}
-    </div>
+    <div v-if="parseError" class="error"><strong>Parse Error:</strong> {{ parseError }}</div>
 
     <div class="viewport" ref="viewport"></div>
 
     <details class="script-source">
       <summary>Edit ShapeScript Source</summary>
-      <textarea
-        v-model="editableScript"
-        @input="handleScriptEdit"
-        class="script-editor"
-        spellcheck="false"
-      ></textarea>
-      <button @click="applyScript" class="apply-btn" :disabled="!hasChanges">
-        Apply Changes
-      </button>
+      <textarea v-model="editableScript" @input="handleScriptEdit" class="script-editor" spellcheck="false"></textarea>
+      <button @click="applyScript" class="apply-btn" :disabled="!hasChanges">Apply Changes</button>
     </details>
   </div>
 </template>
@@ -349,8 +336,7 @@ function applyScript() {
 
     // The loadShapeScript will be called automatically via the watch
   } catch (error) {
-    parseError.value =
-      error instanceof Error ? error.message : "Invalid ShapeScript";
+    parseError.value = error instanceof Error ? error.message : "Invalid ShapeScript";
     console.error("Script validation failed:", error);
   }
 }

@@ -108,11 +108,7 @@ export const plugin: ToolPlugin<Present3DToolData, unknown, Present3DArgs> = {
 
 export type { Present3DToolData, Present3DArgs, Present3DResult } from "../core/types";
 
-export {
-  TOOL_DEFINITION,
-  executePresent3D,
-  pluginCore,
-} from "../core/plugin";
+export { TOOL_DEFINITION, executePresent3D, pluginCore } from "../core/plugin";
 
 export { samples } from "../core/samples";
 
